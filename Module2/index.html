@@ -53,8 +53,43 @@
         }
 
         section {
-            display: none; /* Hide all sections by default */
             margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        section#reviews {
+            background-color: #f9f9f9;
+        }
+
+        .review {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .review h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .review p {
+            color: #666;
+            line-height: 1.6;
         }
 
         footer {
@@ -67,37 +102,6 @@
             width: 100%;
         }
     </style>
-    <script>
-        // JavaScript to toggle visibility of sections based on navigation clicks
-        document.addEventListener("DOMContentLoaded", function() {
-            // Get all section elements
-            const sections = document.querySelectorAll("main > section");
-
-            // Function to show/hide sections
-            function showSection(sectionId) {
-                sections.forEach(section => {
-                    if (section.id === sectionId) {
-                        section.style.display = "block";
-                    } else {
-                        section.style.display = "none";
-                    }
-                });
-            }
-
-            // Add event listeners to navigation links
-            const navLinks = document.querySelectorAll("nav a");
-            navLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent default anchor behavior
-                    const targetSectionId = link.getAttribute("href").substring(1); // Get section id from href
-                    showSection(targetSectionId); // Show target section
-                });
-            });
-
-            // Show home section by default
-            showSection("home");
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -120,19 +124,21 @@
 
         <section id="reviews">
             <h2>Hotel Reviews</h2>
-            <article>
+            <div class="review">
                 <h3>Hotel A</h3>
-                <p>A brief summary of Hotel A's review.</p>
-            </article>
-            <article>
+                <p>A brief summary of Hotel A's review. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et turpis commodo, a ultricies purus maximus.</p>
+            </div>
+            <div class="review">
                 <h3>Hotel B</h3>
-                <p>A brief summary of Hotel B's review.</p>
-            </article>
+                <p>A brief summary of Hotel B's review. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In bibendum magna a mauris ultricies, eget pharetra turpis ultricies.</p>
+            </div>
         </section>
 
         <section id="about">
             <h2>About Us</h2>
-            <p>Learn more about our mission to provide honest hotel reviews.</p>
+            <p>Welcome to Hotel Reviews, where we strive to deliver unbiased and insightful reviews of hotels worldwide. Our team of experienced travelers and hospitality experts meticulously curates each review to ensure you get the most accurate information before booking your stay.</p>
+            <p>At Hotel Reviews, transparency and honesty are our core values. Whether you're looking for luxury resorts, budget accommodations, or boutique hotels, we provide detailed insights and first-hand experiences to help you make informed decisions.</p>
+            <p>Explore our reviews, discover hidden gems, and embark on memorable journeys with confidence. Your trust is our priority.</p>
         </section>
 
         <section id="contact">

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reviews</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the page takes up at least the full height of the viewport */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1; /* Allow main content to expand to fill remaining vertical space */
+            padding: 20px;
+        }
+
+        section {
+            display: none; /* Hide all sections by default */
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        // JavaScript to toggle visibility of sections based on navigation clicks
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all section elements
+            const sections = document.querySelectorAll("main > section");
+
+            // Function to show/hide sections
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.style.display = "block";
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+            }
+
+            // Add event listeners to navigation links
+            const navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    const targetSectionId = link.getAttribute("href").substring(1); // Get section id from href
+                    showSection(targetSectionId); // Show target section
+                });
+            });
+
+            // Show home section by default
+            showSection("home");
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Hotel Reviews</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Hotel Reviews</h2>
+            <p>Explore our curated reviews of top hotels around the world.</p>
+        </section>
+
+        <section id="reviews">
+            <h2>Hotel Reviews</h2>
+            <article>
+                <h3>Hotel A</h3>
+                <p>A brief summary of Hotel A's review.</p>
+            </article>
+            <article>
+                <h3>Hotel B</h3>
+                <p>A brief summary of Hotel B's review.</p>
+            </article>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our mission to provide honest hotel reviews.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="submit.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hotel Reviews. All rights reserved.</p>
+    </footer>
+</body>
+</html>
